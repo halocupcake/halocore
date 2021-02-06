@@ -3,11 +3,12 @@
 
 #include <cstddef>
 
+#include "hc_def.hpp"
 #include "hc_memory_resource.hpp"
 
 namespace hc {
 
-class allocator : public std::pmr::memory_resource {
+class HC_API allocator : public std::pmr::memory_resource {
 public:
     constexpr     allocator() = default;
     constexpr     allocator(allocator const &) = default;
@@ -20,7 +21,7 @@ private:
     virtual bool  do_is_equal(std::pmr::memory_resource const &mr) const noexcept override;
 };
 
-allocator &get_default_allocator();
+HC_API allocator &get_default_allocator();
 
 }
 
