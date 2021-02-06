@@ -1,0 +1,4 @@
+#ifndef HC_ALLOCATOR_HPP
+#define HC_ALLOCATOR_HPP
+
+#endif // HC_ALLOCATOR_HPP
