@@ -1,8 +1,6 @@
 #include <halocore/hc_memory.hpp>
 
-#if defined(_MSC_VER) || defined(__MINGW32__)
-#    include <malloc.h> // fuck you Windows
-#endif
+#include <malloc.h>
 
 #include <new>
 

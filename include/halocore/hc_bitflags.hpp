@@ -96,6 +96,7 @@ inline bitflags<T> constexpr &bitflags<T>::operator^=(T bf) noexcept
     mask_ ^= static_cast<mask_type>(bf);
     return *this;
 }
+
 template<Bitflag_Compatible T> inline constexpr bool bitflags<T>::operator!() const noexcept          { return !mask_; }
 template<Bitflag_Compatible T> inline constexpr      bitflags<T>::operator bool() const noexcept      { return !!mask_; }
 template<Bitflag_Compatible T> inline constexpr      bitflags<T>::operator mask_type() const noexcept { return mask_; }
