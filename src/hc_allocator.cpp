@@ -1,5 +1,4 @@
 #include <halocore/hc_allocator.hpp>
-
 #include <halocore/hc_memory.hpp>
 
 namespace hc {

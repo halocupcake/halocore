@@ -18,7 +18,10 @@ add_library(halocore
 
 target_include_directories(halocore PUBLIC include)
 target_compile_features(halocore PUBLIC cxx_std_20)
-target_compile_definitions(halocore PRIVATE HC_EXPORTING)
+if(BUILD_SHARED_LIBS)
+    target_compile_definitions(halocore PUBLIC HC_DLL)
+    target_compile_definitions(halocore PRIVATE HC_EXPORTING)
+endif()
 
 add_subdirectory(src)
 
