@@ -7,6 +7,7 @@ add_library(halocore
     include/halocore/hc_def.hpp
     include/halocore/hc_type_traits.hpp
     include/halocore/hc_concepts.hpp
+    include/halocore/hc_compare.hpp
     include/halocore/hc_memory_resource.hpp
     include/halocore/hc_overloaded.hpp
     include/halocore/hc_hash.hpp

@@ -1,10 +1,9 @@
 #ifndef HC_BITFLAGS_HPP
 #define HC_BITFLAGS_HPP
 
-#include <compare>
-
 #include "hc_type_traits.hpp"
 #include "hc_concepts.hpp"
+#include "hc_compare.hpp"
 
 namespace hc {
 
