@@ -10,6 +10,7 @@ add_library(halocore
     include/halocore/hc_compare.hpp
     include/halocore/hc_memory_resource.hpp
     include/halocore/hc_span.hpp
+    include/halocore/hc_source_location.hpp
     include/halocore/hc_overloaded.hpp
     include/halocore/hc_hash.hpp
     include/halocore/hc_bitflags.hpp

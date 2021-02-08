@@ -18,7 +18,7 @@ void *reallocate_aligned(void *ptr, std::size_t size, std::size_t alignment)
 {
     ptr = _aligned_realloc(ptr, size, alignment);
     if (!ptr)
-        throw std::bad_alloc{};
+        throw std::bad_alloc{}; // original ptr still valid
     return ptr;
 }
 
