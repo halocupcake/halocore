@@ -5,6 +5,12 @@
 #    include <span>
 #elif __has_include(<experimental/span>)
 #    include <experimental/span>
+
+namespace std {
+template<typename T>
+using span = experimental::span<T>;
+}
+
 #else
 #    error "can't find span header!"
 #endif

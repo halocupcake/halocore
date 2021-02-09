@@ -56,23 +56,28 @@ debug_memory_context::debug_memory_context(debug_memory_context const &dmc)
 
 debug_memory_context::~debug_memory_context()
 {
+    using std::setw;
+    using std::left;
+    using std::right;
+    using std::boolalpha;
+
     constexpr unsigned iolw = 24, iorw = 20;
 
     std::cout << "debug_memory_context [" << identifier_ << "] destruction info:\n"
               << "\tcreated in " << source_location_.get_file() << " at line " << source_location_.get_line() << '\n'
-              << "\t" << std::setw(iolw) << std::left << "is missing memory info: " << std::setw(iorw) << std::right << std::boolalpha << is_missing_memory_info_ << '\n'
-              << "\t" << std::setw(iolw) << std::left << "total allocation count: " << std::setw(iorw) << std::right << total_allocation_count_ << '\n'
-              << "\t" << std::setw(iolw) << std::left << "remaining allocations: "  << std::setw(iorw) << std::right << memory_infos_.size()    << '\n'
-              << "\t" << std::setw(iolw) << std::left << "bytes allocated: "        << std::setw(iorw) << std::right << bytes_allocated_        << '\n'
-              << "\t" << std::setw(iolw) << std::left << "bytes deallocated: "      << std::setw(iorw) << std::right << bytes_deallocated_      << '\n';
+              << "\t" << setw(iolw) << left << "is missing memory info: " << setw(iorw) << right << boolalpha << is_missing_memory_info_ << '\n'
+              << "\t" << setw(iolw) << left << "total allocation count: " << setw(iorw) << right << total_allocation_count_ << '\n'
+              << "\t" << setw(iolw) << left << "remaining allocations: "  << setw(iorw) << right << memory_infos_.size()    << '\n'
+              << "\t" << setw(iolw) << left << "bytes allocated: "        << setw(iorw) << right << bytes_allocated_        << '\n'
+              << "\t" << setw(iolw) << left << "bytes deallocated: "      << setw(iorw) << right << bytes_deallocated_      << '\n';
     if (!memory_infos_.empty()) {
         std::cout << "\tmemory info for remaining allocations:\n";
         for (auto const &pair : memory_infos_) {
             auto const &memory_info = pair.second;
             std::cout << "\t\taddress " << memory_info.address << ":\n"
-                      << "\t\t\t" << std::setw(iolw) << std::left << "size: "               << std::setw(iorw) << std::right << memory_info.size               << '\n'
-                      << "\t\t\t" << std::setw(iolw) << std::left << "alignment: "          << std::setw(iorw) << std::right << memory_info.alignment          << '\n'
-                      << "\t\t\t" << std::setw(iolw) << std::left << "reallocation_count: " << std::setw(iorw) << std::right << memory_info.reallocation_count << '\n';
+                      << "\t\t\t" << setw(iolw) << left << "size: "               << setw(iorw) << right << memory_info.size               << '\n'
+                      << "\t\t\t" << setw(iolw) << left << "alignment: "          << setw(iorw) << right << memory_info.alignment          << '\n'
+                      << "\t\t\t" << setw(iolw) << left << "reallocation_count: " << setw(iorw) << right << memory_info.reallocation_count << '\n';
         }
     }
 
