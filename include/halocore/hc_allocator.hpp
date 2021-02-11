@@ -75,6 +75,7 @@ private:
 inline std::string_view                             debug_memory_context::get_identifier() const               { return identifier_; }
 inline debug_memory_context::memory_info_map const &debug_memory_context::get_memory_info_map() const noexcept { return memory_infos_; }
 
+// https://people.cs.umass.edu/~emery/pubs/berger-pldi2001.pdf
 class HC_API scoped_allocator {
 public:
     scoped_allocator();
