@@ -16,8 +16,9 @@ class bitflags {
 public:
     using mask_type = std::underlying_type_t<T>;
 
+             constexpr        bitflags() noexcept;
              constexpr        bitflags(T bit) noexcept;
-    explicit constexpr        bitflags(mask_type mask = 0u) noexcept;
+    explicit constexpr        bitflags(mask_type mask) noexcept;
 
     constexpr bitflags &      operator&=(bitflags bf) noexcept;
     constexpr bitflags &      operator|=(bitflags bf) noexcept;
@@ -43,6 +44,11 @@ public:
 private:
     mask_type mask_;
 };
+
+template<Bitflag_Compatible T>
+inline constexpr bitflags<T>::bitflags() noexcept
+    : mask_{ 0u }
+{}
 
 template<Bitflag_Compatible T>
 inline constexpr bitflags<T>::bitflags(T bit) noexcept
