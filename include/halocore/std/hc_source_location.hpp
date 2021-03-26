@@ -1,7 +1,7 @@
 #ifndef HC_SOURCE_LOCATION_HPP
 #define HC_SOURCE_LOCATION_HPP
 
-#include "hc_def.hpp"
+#include "../hc_def.hpp"
 
 #if __has_include(<source_location>)
 #    include <source_location>

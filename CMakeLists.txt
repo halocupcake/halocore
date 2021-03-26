@@ -5,12 +5,13 @@ include(GNUInstallDirs)
 
 add_library(halocore
     include/halocore/hc_def.hpp
-    include/halocore/hc_type_traits.hpp
-    include/halocore/hc_concepts.hpp
-    include/halocore/hc_compare.hpp
-    include/halocore/hc_memory_resource.hpp
-    include/halocore/hc_span.hpp
-    include/halocore/hc_source_location.hpp
+    include/halocore/std/hc_type_traits.hpp
+    include/halocore/std/hc_concepts.hpp
+    include/halocore/std/hc_ranges.hpp
+    include/halocore/std/hc_compare.hpp
+    include/halocore/std/hc_memory_resource.hpp
+    include/halocore/std/hc_span.hpp
+    include/halocore/std/hc_source_location.hpp
     include/halocore/hc_overloaded.hpp
     include/halocore/hc_hash.hpp
     include/halocore/hc_bitflags.hpp

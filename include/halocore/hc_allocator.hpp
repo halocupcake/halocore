@@ -10,9 +10,9 @@
 #include <unordered_map>
 
 #include "hc_def.hpp"
-#include "hc_memory_resource.hpp"
-#include "hc_type_traits.hpp"
-#include "hc_source_location.hpp"
+#include "std/hc_memory_resource.hpp"
+#include "std/hc_type_traits.hpp"
+#include "std/hc_source_location.hpp"
 
 namespace hc {
 
