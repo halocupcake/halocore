@@ -57,6 +57,7 @@ public:
     constexpr                 expected(expected &&) noexcept(is_nothrow_move_constructible);
                               ~expected();
 
+    constexpr bool            is_valid() const noexcept;
     constexpr Value &         get_value();
     constexpr Error &         get_error();
 
@@ -108,6 +109,12 @@ expected<Value, Error>::~expected()
         value.~Value();
     else
         error_value.~Error();
+}
+
+template<detail::Success_Compatible Value, detail::Error_Compatible Error>
+constexpr inline bool expected<Value, Error>::is_valid() const noexcept
+{
+    return valid;
 }
 
 template<detail::Success_Compatible Value, detail::Error_Compatible Error>
