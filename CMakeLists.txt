@@ -15,6 +15,7 @@ add_library(halocore
     include/halocore/hc_overloaded.hpp
     include/halocore/hc_hash.hpp
     include/halocore/hc_bitflags.hpp
+    include/halocore/hc_expected.hpp
     include/halocore/hc_memory.hpp
     include/halocore/hc_allocator.hpp
 )
