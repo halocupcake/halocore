@@ -1,9 +1,9 @@
 #ifndef HC_BITFLAGS_HPP
 #define HC_BITFLAGS_HPP
 
-#include "hc_type_traits.hpp"
-#include "hc_concepts.hpp"
-#include "hc_compare.hpp"
+#include "std/hc_type_traits.hpp"
+#include "std/hc_concepts.hpp"
+#include "std/hc_compare.hpp"
 
 namespace hc {
 
