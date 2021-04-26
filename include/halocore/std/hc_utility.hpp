@@ -22,56 +22,32 @@
  * SOFTWARE.
  **/
 
-#ifndef HC_CSTR_HPP
-#define HC_CSTR_HPP
+#ifndef HC_UTILITY_HPP
+#define HC_UTILITY_HPP
 
-#include <memory>
+#if __has_include(<utility>)
+#    include <utility>
+#elif __has_include(<experimental/utility>)
+#    include <experimental/utility>
+#else
+#    error "can't find utility header!"
+#endif
 
-#include "std/hc_concepts.hpp"
-#include "std/hc_type_traits.hpp"
+#include "type_traits"
 
 namespace hc {
 
-namespace detail {
-
-template<typename T>
-concept std_string = requires(T t) {
-        { t.c_str() } noexcept -> std::convertible_to<char const *>;
-    };
-
-}
-
-constexpr char *      get_cstr(char *) noexcept;
-constexpr char const *get_cstr(char const *) noexcept;
-constexpr char const *get_cstr(detail::std_string auto const &) noexcept;
-
-template<typename T>
-concept mutable_cstr = requires(T t) {
-        { get_cstr(t) } -> std::same_as<char *>;
-    };
-
-template<typename T>
-concept immutable_cstr = requires(T t) {
-        { get_cstr(t) } -> std::convertible_to<char const *>;
-    };
+template<typename Enumerator>
+constexpr std::underlying_type_t<Enumerator> to_underlying(Enumerator v) noexcept;
 
 
 
-constexpr inline char *get_cstr(char *const s) noexcept
+template<typename Enumerator>
+constexpr inline std::underlying_type_t<Enumerator> to_underlying(Enumerator const v) noexcept
 {
-    return s;
-}
-
-constexpr inline char const *get_cstr(char const *const s) noexcept
-{
-    return s;
-}
-
-constexpr inline char const *get_cstr(detail::std_string auto const &s) noexcept
-{
-    return s.c_str();
+    return static_cast<std::underlying_type_t<Enumerator>>(v);
 }
 
 }
 
-#endif // HC_CSTR_HPP
+#endif // HC_UTILITY_HPP

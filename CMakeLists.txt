@@ -14,6 +14,7 @@ target_sources(halocore
         include/halocore/std/hc_memory_resource.hpp
         include/halocore/std/hc_span.hpp
         include/halocore/std/hc_source_location.hpp
+        include/halocore/std/hc_utility.hpp
         include/halocore/hc_cstr.hpp
         include/halocore/hc_overloaded.hpp
         include/halocore/hc_hash.hpp
